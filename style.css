@@ -127,3 +127,68 @@ body {
 .search-btn:active {
     transform: translateY(0);
 }
+
+/* Error Section */
+.error-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+
+/* Loading Section */
+.loading-setion {
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-left: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.error-message {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.error-message h3 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.error-message p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.retry-btn {
+    background: #e74c3c;
+    color: white;
+    border: none
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #c0392b;
+}
