@@ -136,7 +136,7 @@ body {
 
 
 /* Loading Section */
-.loading-setion {
+.loading-section {
     text-align: center;
     padding: 60px 20px;
     color: white;
@@ -181,7 +181,7 @@ body {
 .retry-btn {
     background: #e74c3c;
     color: white;
-    border: none
+    border: none;
     padding: 12px 25px;
     border-radius: 8px;
     font-weight: 500;
