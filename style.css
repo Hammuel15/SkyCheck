@@ -283,3 +283,61 @@ body {
     font-weight: 600;
     color: #333;
 }
+
+/* Forecast Section */
+.forecast-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.forecast-section h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.forecast-day {
+    text-align: center;
+    padding: 20px 15px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.forecast-day:hover {
+    background: #e9ecef;
+    transform: translateY(-3px);
+}
+
+.forecast-date {
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.forecast-icon {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.forecast-temp {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.forecast-desc {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: capitalize;
+}
