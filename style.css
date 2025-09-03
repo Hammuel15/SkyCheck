@@ -341,3 +341,14 @@ body {
     color: #666;
     text-transform: capitalize;
 }
+
+
+/* Footer */
+.footer {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
