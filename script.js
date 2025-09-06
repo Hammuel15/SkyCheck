@@ -8,3 +8,8 @@ const loadingSection = document.getElementById('loadingSection');
 const errorSection = document.getElementById('errorSection');
 const resultsSection = document.getElementById('resultsSection');
 
+function setupEventListeners() {
+    searchForm.addEventListener('submit', handleSearch);
+}
+
+// Handle search form submission
