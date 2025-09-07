@@ -62,3 +62,16 @@ async function handleSearch(event) {
         showError('Unable to fetch weather data. Please check city names and try again.');
     }
 }
+
+// Fetch 5-day forecast data
+async function getForecastData(cityName) {
+    const url = `${CONFIG.WEATHER_API_BASE_URL}/forecast?q=${encodeURIComponent(cityName)}&appid=${CONFIG.WEATHER_API_KEY}&units=metric`;
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+}
