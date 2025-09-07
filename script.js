@@ -28,5 +28,37 @@ async function handleSearch(event) {
         showError('Departure and arrival cities must be different.');
         return;
     }
+
+    // Show loading state
+    showLoading();
     
+    try {
+        // Fetch weather data for both cities
+        const [departureData, arrivalData] = await Promise.all([
+            getWeatherData(departureCity),
+            getWeatherData(arrivalCity)
+        ]);
+        
+        // Store data globally
+        departureWeatherData = departureData;
+        arrivalWeatherData = arrivalData;
+        
+        // Get forecast data
+        const [departureForecast, arrivalForecast] = await Promise.all([
+            getForecastData(departureCity),
+            getForecastData(arrivalCity)
+        ]);
+        
+        // Display results
+        displayWeatherResults(departureData, arrivalData);
+        displayFlightStatus(departureData, arrivalData);
+        displayForecast(departureForecast);
+        
+        // Show results
+        showResults();
+        
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        showError('Unable to fetch weather data. Please check city names and try again.');
+    }
 }
