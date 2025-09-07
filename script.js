@@ -75,3 +75,17 @@ async function getForecastData(cityName) {
     
     return await response.json();
 }
+
+// Display weather results
+function displayWeatherResults(departureData, arrivalData) {
+    // Update departure weather
+    updateWeatherCard('departure', departureData);
+    
+    // Update arrival weather
+    updateWeatherCard('arrival', arrivalData);
+}
+
+// Get weather icon from mapping
+function getWeatherIcon(iconCode) {
+    return CONFIG.WEATHER_ICONS[iconCode] || '🌤️';
+}
