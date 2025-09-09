@@ -12,6 +12,12 @@ function setupEventListeners() {
     searchForm.addEventListener('submit', handleSearch);
 }
 
+// Initialize the app when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('SkyCheck app initialized');
+    setupEventListeners();
+});
+
 // Handle search form submission
 async function handleSearch(event) {
     event.preventDefault();
@@ -75,6 +81,8 @@ async function getForecastData(cityName) {
     
     return await response.json();
 }
+
+
 
 function displayForecast(forecastData) {
     const forecastGrid = document.getElementById('forecastGrid');
