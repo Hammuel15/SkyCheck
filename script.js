@@ -89,3 +89,33 @@ function displayWeatherResults(departureData, arrivalData) {
 function getWeatherIcon(iconCode) {
     return CONFIG.WEATHER_ICONS[iconCode] || '🌤️';
 }
+
+
+
+
+// Show loading state
+function showLoading() {
+    loadingSection.classList.remove('hidden');
+    errorSection.classList.add('hidden');
+    resultsSection.classList.add('hidden');
+}
+
+// Show error state
+function showError(message) {
+    loadingSection.classList.add('hidden');
+    resultsSection.classList.add('hidden');
+    errorSection.classList.remove('hidden');
+    document.getElementById('errorText').textContent = message;
+}
+
+// Hide error section
+function hideError() {
+    errorSection.classList.add('hidden');
+}
+
+// Show results
+function showResults() {
+    loadingSection.classList.add('hidden');
+    errorSection.classList.add('hidden');
+    resultsSection.classList.remove('hidden');
+}
