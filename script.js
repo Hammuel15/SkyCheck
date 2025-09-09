@@ -68,7 +68,24 @@ async function handleSearch(event) {
         showError('Unable to fetch weather data. Please check city names and try again.');
     }
 }
-
+// Fetch current weather data for a city
+async function getWeatherData(cityName) {
+    const url = `${CONFIG.WEATHER_API_BASE_URL}/weather?q=${encodeURIComponent(cityName)}&appid=${CONFIG.WEATHER_API_KEY}&units=metric`;
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        if (response.status === 404) {
+            throw new Error(`City "${cityName}" not found`);
+        } else if (response.status === 401) {
+            throw new Error('Invalid API key');
+        } else {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+    }
+    
+    return await response.json();
+}
 // Fetch 5-day forecast data
 async function getForecastData(cityName) {
     const url = `${CONFIG.WEATHER_API_BASE_URL}/forecast?q=${encodeURIComponent(cityName)}&appid=${CONFIG.WEATHER_API_KEY}&units=metric`;
