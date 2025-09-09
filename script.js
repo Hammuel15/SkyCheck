@@ -76,6 +76,32 @@ async function getForecastData(cityName) {
     return await response.json();
 }
 
+function displayForecast(forecastData) {
+    const forecastGrid = document.getElementById('forecastGrid');
+    forecastGrid.innerHTML = ''; // clear old forecast
+
+    // OpenWeather returns 3-hour steps, so we pick 1 forecast per day
+    const daily = forecastData.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+    daily.forEach(day => {
+        const date = new Date(day.dt_txt).toLocaleDateString('en-US', { weekday: 'short' });
+        const icon = getWeatherIcon(day.weather[0].icon);
+        const temp = `${Math.round(day.main.temp)}°C`;
+        const desc = day.weather[0].description;
+
+        const card = `
+            <div class="forecast-day">
+                <div class="forecast-date">${date}</div>
+                <div class="forecast-icon">${icon}</div>
+                <div class="forecast-temp">${temp}</div>
+                <div class="forecast-desc">${desc}</div>
+            </div>
+        `;
+        forecastGrid.insertAdjacentHTML('beforeend', card);
+    });
+}
+
+
 // Display weather results
 function displayWeatherResults(departureData, arrivalData) {
     // Update departure weather
